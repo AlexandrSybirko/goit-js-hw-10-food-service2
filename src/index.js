@@ -25,17 +25,18 @@ const STORAGE_KEY = 'light-Theme';
 
 bodyRef.classList.add(theme.LIGHT)
 themeSwitchRef.addEventListener('change', onThemeChenge);
-const savedTheme = localStorage.getItem(STORAGE_KEY);
+
 
 function onThemeChenge(evt) {
   bodyRef.classList.toggle(theme.LIGHT)
   bodyRef.classList.toggle(theme.DARK)
   
-  const isLight = bodyRef.classList.contains(theme.LIGHT);
-  localStorage.setItem(STORAGE_KEY, isLight);
+  const currentTheme = bodyRef.classList.contains(theme.LIGHT);
+  localStorage.setItem(STORAGE_KEY, currentTheme);
   
 }
 
+const savedTheme = localStorage.getItem(STORAGE_KEY);
 currentTheme(savedTheme)
 
 function currentTheme(savedTheme) {
